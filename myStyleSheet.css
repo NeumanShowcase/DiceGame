@@ -1,0 +1,359 @@
+body
+{
+  background-image: url("Resources/img/loginFormPic.jpg");
+  background-size: cover;
+  background-color: black;
+}
+h1
+{
+  color: lightgreen;
+  font-style: italic;
+  font-family: "Times New Roman", Georgia, Serif;
+  margin-top: 10px;
+  margin-left: 70px;
+}
+h2
+{
+
+    width: 200px;
+    margin: auto;
+}
+h3
+{
+
+    width: 400px;
+    margin: auto;
+}
+p
+{
+  display: inline;
+  color: green;
+}
+form
+{
+    margin:auto;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+
+/** classes **/
+
+.invalidInput
+{
+	border: 2px solid red;
+}
+.validInput
+{
+	border: 2px solid green;
+}
+.error
+{
+	display: none;
+	margin-left: 10px;
+}
+.error_show
+{
+	color: red;
+	margin-left: 10px;
+}
+.my-dice
+{
+    border:10px solid red;
+}
+.topnav
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgreen;
+
+    background-size: cover;
+}
+.topnav li
+{
+  float: left;
+
+}
+.topnav li a
+{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.topnav li a:hover:not(.active)
+{
+  background-color: #111;
+}
+
+.topnav .active
+{
+  background-color: grey;
+}
+
+.topnav .right
+{
+  float: right;
+}
+.topnav .center
+{
+  margin-left: 10px;
+  color: white;
+  list-style-type: none;
+
+}
+@media screen and (max-width: 600px)
+{
+    ul.topnav li.right,
+    ul.topnav li
+    {
+      float: none;
+    }
+}
+
+.textForInputs
+{
+  color: black;
+  margin-right: 30px;
+    max-width: 250px;
+}
+.heading
+{
+  margin:auto;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+}
+.formatDate
+{
+  text-align: right;
+}
+
+.refreshScore
+{
+  width: 100%;
+  cursor: pointer;
+}
+.dice
+{
+  margin:auto;
+  display: inline-block;
+  height: 25%;
+  width: 25%;
+  margin-left: 4%;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+/** by ID **/
+#homeButton
+{
+  background-image: url("Resources/img/randomNum.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#navButtonLogout
+{
+    display: none;
+}
+#loginButton
+{
+    margin-top:  10px;
+    max-width: 250px;
+}
+#Login-status
+{
+    color : white;
+    max-width: 250px;
+}
+
+#signupButton
+{
+    margin-right: 30px;
+    max-width: 250px;
+}
+#mySignupForm
+{
+  margin: auto;
+  display: none;
+  margin-top: 10%;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 500px;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 20px;
+}
+#showError
+{
+  color : red;
+}
+#myLoginForm
+{
+  margin: auto;
+  margin-top: 10%;
+  display:none;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 350px;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 20px;
+}
+#userCP
+{
+  color: white;
+  display: none;
+  border-collapse: collapse;
+  border: 1px solid green;
+  width: 100%;
+}
+
+#howToPlay
+{
+  margin:auto;
+  display: none;
+  margin-top: 10%;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 500px;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 20px;
+}
+#userUI
+{
+  margin:auto;
+  text-align: left;
+  display: none;
+  margin-top: 10%;
+  min-width: 250px;
+  max-width: 300px;
+  min-height: 500px;
+  background-color: lightblue;
+  padding: 15px;
+  border-radius: 20px;
+}
+#diceGameGUI
+{
+  margin: auto;
+  display: block;
+  background-color: black;
+  top: 10%;
+  left: 20%;
+  min-width: 800px;
+  color: white;
+}
+#highScoreTable
+{
+  margin:auto;
+  display: block;
+  float: left;
+  border: 6px solid green;
+  border-collapse: separate;
+  color: white;
+  width: 20%;
+  border-radius: 10px;
+  background-color: black;
+}
+
+#userScoreTable
+{
+  margin:auto;
+  display: block;
+  float: right;
+  border: 6px solid green;
+  border-collapse: separate;
+  border-radius: 10px;
+  color: white;
+  width: 20%;
+  border-radius: 10px;
+  background-color: black;
+}
+
+
+
+
+#globalScoreDescription
+{
+  margin:auto;
+  display:block;
+  float:left;
+  border: 2px solid green;
+  color: white;
+  width: 125%;
+  border-radius: 10px;
+  background-color: black;
+}
+#userScoreDescription
+{
+  margin: auto;
+  display: block;
+  float: right;
+  border: 2px solid green;
+  color: white;
+  width: 125%;
+  border-radius: 10px;
+  background-color: black;
+}
+#newHighPic
+{
+  margin: auto;
+  display: none;
+  margin-left: 30%;
+}
+#formatScore
+{
+  text-align: center;
+  margin-left: 10px;
+}
+
+#resultLabel
+{
+  margin: auto;
+  margin-left: 25%;
+  margin-right: 10%;
+}
+#rollButton
+{
+  display: block;
+  width: 50%;
+  text-align: center;
+  color: lightblue;
+  background-color: blue;
+  cursor: pointer;
+}
+#DiceGraphicRepresentation
+{
+  margin:auto;
+  display: block;
+  margin-left: 8%;
+  background-color: black;
+}
+#inputtedGuess
+{
+  width: 50%;
+  text-align: center;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+#guessAndSubmit
+{
+  margin:auto;
+  margin-left: 33%;
+  margin-top: 1%;
+}
+#currentScore
+{
+  display:block;
+  margin-left: 10px;
+  font-size: 30px;
+  border-bottom: 2px solid green;
+}
+
+/* ENG OF CSS FILE */

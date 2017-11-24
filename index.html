@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- include library JQuery from CDN  -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <!-- include script written in javascript-->
+
+  <!-- script file containing server calls and handeling !-->
+  <script src="serverCallFunctions.js"></script>
+  <!-- include script written using JQuery validating user input from forms-->
+  <script src="inputValidationScripts.js"></script>
+  <!-- include script for main game engine -->
+  <script src="gameLogic.js"></script>
+  <!-- include script for player function & variables -->
+  <script src="user.js"></script>
+  <!-- script file containing site main function and navigation !-->
+  <script src="main.js"></script>
+
+  <title>DiceGame</title>
+	<!-- Website CSS style -->
+<link rel="stylesheet" type="text/css" href="Resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="myStyleSheet.css">
+</head>
+<body>
+
+  <!-- start of navigation bar -->
+  <ul class="topnav">
+    <li><a class="active" id ="homeButton" href="javascript:toggleForms(4)">DiceGame</a></li>
+    <li class="center"><a href="javascript:toggleForms(2)">How to play?</a></li>
+
+    <li class="right"><a href="javascript:toggleForms(1)" id ="userLogValue">User logged out</a></li>
+    <li class ="center"> <a href="javascript:toggleForms(0)" id = "navButtonLogin">Login</a></li>
+    <li class ="center"> <a href="javascript:logout()" id = "navButtonLogout">Logout</a></li>
+    <li class ="center"> <a href="javascript:toggleForms(3)" id = "navButtonReg">Signup</a></li>
+  </ul>
+<!-- end of navigation bar -->
+
+  <!-- start of login form -->
+  <form id ="myLoginForm" action="#">
+<div>
+    <label class = "textForInputs" for ="Login_userNameInput"><b>Email:</b></label>
+    <input type="text" required placeholder="Enter Username" name="un" id = "Login_userNameInput"><br>
+</div>
+<div>
+    <label class = "textForInputs" for ="Login_passwordInput"><b>Password:</b></label>
+    <input type="password" required placeholder="Enter Password" name="pw" id = "Login_passwordInput">
+</div>
+    <label id = "Login-status"> Status: </label>
+    <input type = "button" id ="loginButton" class="btn btn-primary btn-lg btn-block login-button" value = "Login" onclick ="">
+    <input type = "button" id = "signupButton" class ="btn btn-primary btn-lg btn-block login-button" value = "Signup" onclick="toggleForms(3)">
+
+  </form>
+  <!-- end of login form -->
+
+
+
+<!-- start of signup form -->
+  <form id = "mySignupForm" action="#">
+    <label for ="signup_FirstName"><b>First name:</b></label>
+    <input type="text" required placeholder="Your name" name="fn" id = "signup_FirstName">
+    <label for ="signup_LastName"><b>Surname:</b></label>
+    <input type="text" required placeholder="Your surname" name="ln" id = "signup_LastName">
+<br>
+    <label for ="signup_Email"><b>Email:</b></label>
+<br>
+    <input type="email" required placeholder="Enter E-mail" name="em" id = "signup_Email">
+    <label for ="signup_Username"><b>Username:</b></label>
+    <input type="text" required placeholder="Enter Username" name="un" id = "signup_Username">
+    <label for ="signup_Password"><b>Password:</b></label>
+    <input type="password" required placeholder="Enter Password" name="pw" id = "signup_Password">
+    <label for ="signup_PasswordMatch"><b>Confirm Password:</b></label>
+    <input type="password" required placeholder="Repeat Password" name="pwc" id = "signup_PasswordMatch">
+<br>
+   <label id ="Signup-status"> Status: </label>
+    <input type = "button"  id = "signup_submitButton" class ="btn btn-primary btn-lg btn-block login-button" value = "Signup">
+  </form>
+
+<!-- end of signup form -->
+
+<!-- Form style information "window" telling user what to expect from game and site -->
+<form name="howToPlay"  id = "howToPlay">
+
+<b> What is this? </b><br> This webpage consists of a dicegame in which the player guesses on the sum of the outcome of the first three dice. <br><br><b> How do i win? </b><br>If the guessed numeber is equal or below the outcome the player wins this sum multiplied by the value of the last dice. <br><br><b> When is it over? </b><br> One game consists of ten dice rolls. After which the player will be able to see the final result.<br><br><b> Why do i have to create a user? </b><br>You don't have to but if you do you will be able to compare your own top scores and see the global top scores. <br> <br>If you wish to test the game please:<a href ="javascript:toggleForms(4)"> Continue->></a><br><br>Else feel free to: <a href ="javascript:toggleForms(0)"> log in--></a>
+
+</form>
+<!-- end of information window -->
+
+
+  <!-- start of user logged in form -->
+<form id = "userUI">
+  <table id = "UserCP">
+<tr>
+  <th class = "heading">Username:</th>
+  <th id = "showLoggedInUsername"></th>
+</tr>
+<tr>
+  <th class = "heading">Firstname:</th>
+  <th id = "showFirstName"></th>
+</tr>
+<tr>
+  <th class = "heading">Lastname:</th>
+  <th id = "showLastName"></th>
+</tr>
+<tr>
+  <th class = "heading">Email:</th>
+  <th id = "showEmail"></th>
+</tr>
+<tr>
+ <th class = "heading">Top Highscore:</th>
+ <th id = "showScore"></th>
+</tr>
+  </table>
+<a href ="javascript:logout()">log out->></a>
+</form>
+<!-- end of user logged in form -->
+
+
+
+<!-- start of dice game interface -->
+<form name = "diceRollerForm" id ="diceGameGUI">
+<div id = "DiceGraphicRepresentation">
+<label id = "currentScore"> Current score:  </label>
+  <img id = "dice0" class ="dice" src="Resources/img/diceOrigin.png" alt ="This image represent the outcome of the first dice in the dicegame">
+  <img id = "dice1" class ="dice" src="Resources/img/diceOrigin.png" alt ="This image represent the outcome of the second dice in the dicegame">
+  <img id = "dice2" class ="dice" src="Resources/img/diceOrigin.png" alt ="This image represent the outcome of the third dice in the dicegame">
+  <img id = "dice3" class ="dice" src="Resources/img/diceOrigin.png" alt ="This image represent the outcome of the forth dice in the dicegame">
+<br>
+<label id = "resultLabel"> Guess the outcome of the first three dice below:  </label>
+<img id = "newHighPic" src="Resources/img/newHigh.png" alt ="Image displaying a prize to show that player have new highscore"><br>
+</div>
+<div id ="guessAndSubmit">
+<input type ="text" required placeholder="Guess the sum of the first three dice!" name ="inputNo" id = "inputtedGuess">
+<input type = "submit" id="rollButton" class ="btn btn-primary btn-lg btn-block login-button" value = "Guess then Press">
+</div>
+
+
+  <label id = "gamesPlayed"> No of games played:  </label>
+
+  <div id ="scoreTables">
+<table id = "highScoreTable">
+
+  <tr>
+        <th>Top 10 global: <button type = "button" id ="refreshGlobalScore" class ="btn btn-primary btn-lg btn-block login-button refreshScore" onclick = "javascript:getTopGlobal()"> Refresh </button></th>
+        <th></th>
+  </tr>
+
+  <tr>
+        <th>Username</th>
+        <th> Score </th>
+  </tr>
+
+  <tr>
+        <th id ="globalTableErrorMSG"></th>
+        <th></th>
+  </tr>
+</table>
+
+
+<table id = "userScoreTable">
+
+  <tr>
+      <th>Your top 10: <button type = "button" id ="refreshUserScore" class ="btn btn-primary btn-lg btn-block login-button refreshScore" onclick = "javascript:getTopUser()"> Refresh</button></th>
+      <th></th>
+  </tr>
+  <tr>
+      <th>Score</th>
+      <th>Added</th>
+  </tr>
+  <tr>
+      <th id ="userTableErrorMSG"></th>
+      <th></th>
+  </tr>
+
+</table>
+</div>
+
+<!-- End of dice game interface -->
+
+
+
+
+
+</form>
+</body>
+</html>
